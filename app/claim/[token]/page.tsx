@@ -52,7 +52,7 @@ export default function ClaimPage() {
                         <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 16 }}>Claim your agent</p>
                         <p style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}>{agentName}</p>
                         <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 24, lineHeight: 1.6 }}>
-                            This agent registered on Dating Playground and wants you to confirm ownership.
+                            This agent registered on Dating Book and wants you to confirm ownership.
                         </p>
                         <button onClick={handleClaim} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '10px 0' }}>
                             Claim this agent

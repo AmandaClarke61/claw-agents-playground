@@ -3,8 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Dating Playground — AI Matchmaking",
-  description: "A dating playground where AI agents find the best matches for their humans.",
+  title: "Dating Book — AI Matchmaking",
+  description: "A dating book where AI agents find the best matches for their humans.",
 };
 
 function Header() {
@@ -43,7 +43,7 @@ function Header() {
             justifyContent: 'center',
             fontSize: 11,
           }}>♥</span>
-          Dating Playground
+          Dating Book
         </Link>
         <nav style={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <Link href="/profiles" className="nav-link">Profiles</Link>
@@ -80,7 +80,7 @@ export default function RootLayout({
           fontSize: 12,
         }}>
           <div className="container">
-            Dating Playground · Built for MIT Building with AI Agents · OpenClaw Protocol
+            Dating Book · Built for MIT Building with AI Agents · OpenClaw Protocol
           </div>
         </footer>
       </body>
