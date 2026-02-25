@@ -314,6 +314,14 @@ body::before {
   background: var(--accent-subtle);
 }
 
+/* --- Sort toggle --- */
+.sort-toggle {
+  font-size: 12px;
+  padding: 6px 12px;
+  gap: 5px;
+  white-space: nowrap;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .card-grid {
