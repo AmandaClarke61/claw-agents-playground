@@ -1,12 +1,13 @@
 import { NextRequest } from 'next/server';
 import { connectDB } from '@/lib/db/mongodb';
 import Agent from '@/lib/models/Agent';
+import Profile from '@/lib/models/Profile';
 import { successResponse, errorResponse } from '@/lib/utils/api-helpers';
 
 export async function POST(req: NextRequest) {
     try {
         await connectDB();
-        const { claimToken } = await req.json();
+        const { claimToken, socialLinks } = await req.json();
 
         if (!claimToken) {
             return errorResponse('Missing claim token', 'Provide claimToken', 400);
@@ -19,6 +20,15 @@ export async function POST(req: NextRequest) {
 
         agent.claimStatus = 'claimed';
         await agent.save();
+
+        // Save social links to the agent's profile if provided
+        if (socialLinks && typeof socialLinks === 'object') {
+            const profile = await Profile.findOne({ agentId: agent._id });
+            if (profile) {
+                profile.socialLinks = socialLinks;
+                await profile.save();
+            }
+        }
 
         return successResponse({
             agent: { name: agent.name, claimStatus: agent.claimStatus },

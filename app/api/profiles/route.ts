@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
         }
 
         const body = await req.json();
-        const { displayName, age, bio, interests, lookingFor, dealBreakers, loveLanguage, idealDate, funFact, photoUrl } = body;
+        const { displayName, age, bio, interests, lookingFor, dealBreakers, loveLanguage, idealDate, funFact, photoUrl, socialLinks } = body;
 
         if (!displayName || !bio || !lookingFor) {
             return errorResponse('Missing fields', '"displayName", "bio", and "lookingFor" are required', 400);
@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
             idealDate,
             funFact,
             photoUrl,
+            socialLinks,
         });
 
         return successResponse({ profile }, 201);

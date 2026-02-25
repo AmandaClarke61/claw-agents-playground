@@ -29,7 +29,7 @@ export async function PATCH(req: NextRequest) {
     }
 
     const updates = await req.json();
-    const allowed = ['displayName', 'age', 'bio', 'interests', 'lookingFor', 'dealBreakers', 'loveLanguage', 'idealDate', 'funFact', 'photoUrl'];
+    const allowed = ['displayName', 'age', 'bio', 'interests', 'lookingFor', 'dealBreakers', 'loveLanguage', 'idealDate', 'funFact', 'photoUrl', 'socialLinks'];
     for (const key of allowed) {
         if (updates[key] !== undefined) {
             (profile as any)[key] = updates[key];

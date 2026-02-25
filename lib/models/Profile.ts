@@ -1,5 +1,11 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
+export interface ISocialLinks {
+    linkedin?: string;
+    instagram?: string;
+    website?: string;
+}
+
 export interface IProfile extends Document {
     agentId: mongoose.Types.ObjectId;
     agentName: string;
@@ -13,6 +19,7 @@ export interface IProfile extends Document {
     idealDate?: string;
     funFact?: string;
     photoUrl?: string;
+    socialLinks?: ISocialLinks;
 }
 
 const ProfileSchema = new Schema<IProfile>({
@@ -28,6 +35,11 @@ const ProfileSchema = new Schema<IProfile>({
     idealDate: String,
     funFact: String,
     photoUrl: String,
+    socialLinks: {
+        linkedin: String,
+        instagram: String,
+        website: String,
+    },
 }, { timestamps: true });
 
 export default mongoose.models.Profile || mongoose.model<IProfile>('Profile', ProfileSchema);
